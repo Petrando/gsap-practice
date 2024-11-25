@@ -1,8 +1,10 @@
+import Hero from "./components/Hero"
+
 function App() {
 
   return (
-    <main>
-      <h1 className='font-bold text-lg font-zentry text-yellow-300'>Vite + React</h1>
+    <main className="relative min-h-screen w-screen overflow-x-hidden">
+      <Hero />
     </main>
   )
 }
