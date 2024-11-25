@@ -7,7 +7,7 @@ interface ButtonProps {
     id: string;
     title: string;
     rightIcon?: ReactNode;
-    leftIcon: ReactNode;
+    leftIcon?: ReactNode;
     containerClass?: string; // optional since it's not always used
 }
 
