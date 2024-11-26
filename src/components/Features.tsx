@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, ReactNode, useRef, MouseEvent, useState } from 'react'
+import { TiLocationArrow } from 'react-icons/ti';
 
 interface IBentoTilt {
     children: ReactNode;
@@ -132,6 +133,26 @@ const Features = () => {
 
                     <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
                         <BentoCard {...bentos[1]} />
+                    </BentoTilt>
+
+                    <BentoTilt className="bento-tilt_2">
+                        <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
+                            <h1 className="bento-title special-font max-w-64 text-black">
+                            M<b>o</b>re co<b>m</b>ing s<b>o</b>on.
+                            </h1>
+
+                            <TiLocationArrow className="m-5 scale-[5] self-end" />
+                        </div>
+                    </BentoTilt>
+
+                    <BentoTilt className="bento-tilt_2">
+                        <video
+                            src="videos/feature-5.mp4"
+                            loop
+                            muted
+                            autoPlay
+                            className="size-full object-cover object-center"
+                        />
                     </BentoTilt>
                 </div>
 
