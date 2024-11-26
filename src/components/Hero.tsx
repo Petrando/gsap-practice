@@ -9,7 +9,7 @@ import Button from './Button';
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-    const [ currentIndex, setcurrentIndex ] = useState(1)
+    const [ currentIndex, setCurrentIndex ] = useState(1)
     const [ hasClicked, setHasClicked ] = useState(false)
 
     const [loading, setLoading] = useState(true);
@@ -18,6 +18,10 @@ const Hero = () => {
     const totalVideos = 4;
     const nextVdRef = useRef<HTMLVideoElement>(null);
 
+    const handleVideoLoad = () => {
+        setLoadedVideos((prev) => prev + 1);
+    };
+    
     useEffect(() => {
         if (loadedVideos === totalVideos - 1) {
           setLoading(false);
@@ -26,10 +30,7 @@ const Hero = () => {
 
     const handleMiniVidClick = () => {
         setHasClicked(true)
-        setcurrentIndex(prev => {
-            const nextIdx = prev + 1
-            return nextIdx > 3? 0 : nextIdx
-        })
+        setCurrentIndex(prevIndex => (prevIndex % totalVideos) + 1);
     }
 
     useGSAP(
@@ -80,9 +81,7 @@ const Hero = () => {
 
     const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`
 
-    const handleVideoLoad = () => {
-        setLoadedVideos((prev) => prev + 1);
-    };
+    
 
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
