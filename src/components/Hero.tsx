@@ -79,9 +79,7 @@ const Hero = () => {
         });        
     });
 
-    const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`
-
-    
+    const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`   
 
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
@@ -138,8 +136,11 @@ const Hero = () => {
                     />
                 </div>
 
-                <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-                    G<b>A</b>MING
+                <h1 
+                    className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75 hero glitch layers"
+                    data-text="GAMING"
+                >
+                    <span>G<b>A</b>MING</span>
                 </h1>
 
                 <div className="absolute left-0 top-0 z-40 size-full">
