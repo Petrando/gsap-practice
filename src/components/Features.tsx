@@ -1,5 +1,46 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode, useRef, MouseEvent, useState } from 'react'
+
+interface IBentoTilt {
+    children: ReactNode;
+    className: string;
+}
+export const BentoTilt:FC<IBentoTilt> = ({ children, className = "" }) => {
+    const [transformStyle, setTransformStyle] = useState("");
+    const itemRef = useRef<HTMLDivElement>(null);
+  
+    const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+        if (!itemRef.current) return;
+    
+        const { left, top, width, height } =
+            itemRef.current.getBoundingClientRect();
+    
+        const relativeX = (event.clientX - left) / width;
+        const relativeY = (event.clientY - top) / height;
+    
+        const tiltX = (relativeY - 0.5) * 5;
+        const tiltY = (relativeX - 0.5) * -5;
+    
+        const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(.95, .95, .95)`;
+        setTransformStyle(newTransform);
+    };
+  
+    const handleMouseLeave = () => {
+        setTransformStyle("");
+    };
+  
+    return (
+        <div
+            ref={itemRef}
+            className={className}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ transform: transformStyle }}
+        >
+            {children}
+        </div>
+    );
+};
 
 interface IBento { 
     src: string;
@@ -76,22 +117,22 @@ const Features = () => {
                     </p>
                 </div>
 
-                <div className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+                <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
                     <BentoCard {...bentoTop} />
-                </div>
+                </BentoTilt>
 
                 <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-                    <div className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+                    <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
                         <BentoCard {...bentoBottomMain} />
-                    </div>
+                    </BentoTilt>
 
-                    <div className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+                    <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
                         <BentoCard {...bentos[0]} />
-                    </div>
+                    </BentoTilt>
 
-                    <div className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
+                    <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
                         <BentoCard {...bentos[1]} />
-                    </div>
+                    </BentoTilt>
                 </div>
 
 
