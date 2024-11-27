@@ -15,6 +15,8 @@ const Hero = () => {
     const [loading, setLoading] = useState(true);
     const [loadedVideos, setLoadedVideos] = useState(0);
 
+    const [isGlitching, setIsGlitching] = useState({ glitch: false, by:"" })
+
     const totalVideos = 4;
     const nextVdRef = useRef<HTMLVideoElement>(null);
 
@@ -27,11 +29,32 @@ const Hero = () => {
           setLoading(false);
         }
     }, [loadedVideos]);
-
-    const handleMiniVidClick = () => {
+    
+    const handleMiniVidClick = (by: string) => {
         setHasClicked(true)
         setCurrentIndex(prevIndex => (prevIndex % totalVideos) + 1);
+        
+        if(by === "mouse"){
+            setIsGlitching({ glitch: false, by: "" })
+        }else if(by === "touch"){
+            setIsGlitching({ glitch: true, by: "" })
+        }
+        
     }
+
+    let debounceTimer: NodeJS.Timeout | null = null;
+
+    const debouncedHandleVidClick = (by: string) => {
+        // If a previous timeout is still pending, clear it
+        if (debounceTimer) {
+            clearTimeout(debounceTimer);
+        }
+
+        // Set a new timeout to call the function after 500ms
+        debounceTimer = setTimeout(() => {
+            handleMiniVidClick(by);
+        }, 500);
+    }    
 
     useGSAP(
         () => {
@@ -84,7 +107,7 @@ const Hero = () => {
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
             {loading && (
-                <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+                <div className="flex-center fixed left-0 top-0 z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
                 {/* https://uiverse.io/G4b413l/tidy-walrus-92 */}
                 <div className="three-body">
                     <div className="three-body__dot"></div>
@@ -100,8 +123,12 @@ const Hero = () => {
                 <div>
                     <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
                         <div 
-                            onClick={handleMiniVidClick}
+                            onClick={()=>{debouncedHandleVidClick("mouse")}}
                             className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'
+                            onMouseMove={()=>{setIsGlitching({ glitch: true, by: "mouse"})}}
+                            onMouseOut={()=>{setIsGlitching({ glitch: false, by: ""})}}
+                            onTouchStart={()=>{debouncedHandleVidClick("touch")}}
+                            onTouchEnd={()=>{setIsGlitching({ glitch: true, by: "touch" })}}
                         >
                             <video 
                                 ref={nextVdRef} 
@@ -137,16 +164,18 @@ const Hero = () => {
                 </div>
 
                 <h1 
-                    className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75 hero glitch layers"
+                    className={`special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75 ${isGlitching.glitch && "glitch"}`}
                     data-text="GAMING"
                 >
-                    <span>G<b>A</b>MING</span>
+                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>G<b>A</b>MING</span>
+                    G<b>A</b>MING
+                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>G<b>A</b>MING</span>
                 </h1>
 
                 <div className="absolute left-0 top-0 z-40 size-full">
                     <div className="mt-24 px-5 sm:px-10">
-                        <h1 className="special-font hero-heading text-blue-100">
-                            redefi<b>n</b>e
+                        <h1 className={`special-font hero-heading text-blue-100 ${isGlitching.glitch && "glitch"}`}>                            
+                            redefi<b>n</b>e                        
                         </h1>
 
                         <p className="mb-5 max-w-64 font-robert-regular text-blue-100">

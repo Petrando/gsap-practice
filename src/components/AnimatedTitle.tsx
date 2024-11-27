@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface IAnimatedTitle { 
     title: string;
-    containerClass: string;
+    containerClass: string;    
 }
 
 const AnimatedTitle:FC<IAnimatedTitle> = ({ title, containerClass }) => {
