@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -42,7 +42,7 @@ const Hero = () => {
         
     }
 
-    let debounceTimer: NodeJS.Timeout | null = null;
+    let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
     const debouncedHandleVidClick = (by: string) => {
         // If a previous timeout is still pending, clear it

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, ReactNode, useRef, MouseEvent, useState } from 'react'
+import { FC, ReactNode, useRef, MouseEvent, useState } from 'react'
 import { TiLocationArrow } from 'react-icons/ti';
 
 interface IBentoTilt {
@@ -50,7 +50,7 @@ interface IBento {
     isComingSoon: boolean;
 }
 
-export const BentoCard:FC<IBento> = ({ src, title, description, isComingSoon }) => {
+export const BentoCard:FC<IBento> = ({ src, title, description }) => {
 
     return (
         <div className="relative size-full">

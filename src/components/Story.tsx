@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useRef, MouseEvent } from 'react'
+import { useRef, MouseEvent } from 'react'
 import gsap from 'gsap'
 import AnimatedTitle from './AnimatedTitle'
 import RoundedCorners from './RoundedCorners'
