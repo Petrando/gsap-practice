@@ -72,24 +72,32 @@ export const BentoCard:FC<IBento> = ({ src, title, description, isComingSoon }) 
         </div>
     )
 }
-const Features = () => {
-    const bentoTop = 
+
+interface ITiltCard extends IBento {
+    className: string;
+}
+
+const TiltBentoCard:FC<ITiltCard> = ({ className, ...props}) => {
+    return <BentoTilt className={className}>
+        <BentoCard {...props} />
+    </BentoTilt>
+}
+
+const Features = () => {    
+
+    const bentos = [  
         {
             src: "feature-1.mp4",
             title: <>radia<b>n</b>t</>,
             description: "A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure.",
             isComingSoon: true
-        }
-    
-
-    const bentoBottomMain = {
-        src: "feature-2.mp4",
-        title: <>zig<b>m</b>a</>,
-        description: "An anime and gaming-inspired NFT collection - the IP primed for expansion.",
-        isComingSoon: true
-    }
-
-    const bentos = [        
+        },
+        {
+            src: "feature-2.mp4",
+            title: <>zig<b>m</b>a</>,
+            description: "An anime and gaming-inspired NFT collection - the IP primed for expansion.",
+            isComingSoon: true
+        },       
         {
             src: "feature-3.mp4",
             title: <> n<b> e </b>xus </>,
@@ -118,22 +126,22 @@ const Features = () => {
                     </p>
                 </div>
 
-                <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
-                    <BentoCard {...bentoTop} />
-                </BentoTilt>
+                <TiltBentoCard 
+                    className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]" 
+                    {...bentos[0]}
+                />
 
                 <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-                    <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
-                        <BentoCard {...bentoBottomMain} />
-                    </BentoTilt>
-
-                    <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
-                        <BentoCard {...bentos[0]} />
-                    </BentoTilt>
-
-                    <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
-                        <BentoCard {...bentos[1]} />
-                    </BentoTilt>
+                    <TiltBentoCard 
+                        className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2"
+                        {...bentos[1]}
+                    />
+                    <TiltBentoCard 
+                        className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0"
+                         {...bentos[2]} />                    
+                    <TiltBentoCard 
+                        className="bento-tilt_1 me-14 md:col-span-1 md:me-0"
+                        {...bentos[3]} />                    
 
                     <BentoTilt className="bento-tilt_2">
                         <div className="flex size-full flex-col justify-between bg-violet-300 p-5">
@@ -155,8 +163,6 @@ const Features = () => {
                         />
                     </BentoTilt>
                 </div>
-
-
             </div>
         </section>
     )
