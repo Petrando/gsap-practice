@@ -19,6 +19,8 @@ const Hero = () => {
 
     const totalVideos = 4;
     const nextVdRef = useRef<HTMLVideoElement>(null);
+    const vid1Ref = useRef<HTMLVideoElement>(null);
+    const vid2Ref = useRef<HTMLVideoElement>(null);
 
     const handleVideoLoad = () => {
         setLoadedVideos((prev) => prev + 1);
@@ -67,7 +69,10 @@ const Hero = () => {
                     height: "100%",
                     duration: 1,
                     ease: "power1.inOut",
-                    onStart: () => {nextVdRef.current?.play()},
+                    onStart: () => {
+                        nextVdRef.current?.play()
+                        vid1Ref.current?.play()
+                    },
                 });
                 gsap.from("#current-video", {
                     transformOrigin: "center center",
@@ -143,7 +148,7 @@ const Hero = () => {
                         </div>
                     </div>
                     <video
-                        ref={nextVdRef}
+                        ref={vid1Ref}
                         src={getVideoSrc(currentIndex.toString())}
                         loop
                         muted
@@ -155,6 +160,7 @@ const Hero = () => {
                         src={getVideoSrc(
                             (currentIndex === totalVideos - 1 ? 1 : currentIndex).toString()
                         )}
+                        ref={vid2Ref}
                         autoPlay
                         loop
                         muted
