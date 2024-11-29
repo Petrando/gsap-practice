@@ -171,11 +171,20 @@ const Hero = () => {
                     />
                     {
                         !allVidsReady &&
-                        <img
-                            src="img/HeroPlaceholder.webp"
-                            alt="Background"
-                            className="absolute left-0 top-0 size-full object-cover object-center"
-                        />
+                        <div className='absolute left-0 top-0 size-full object-cover object-center'>
+                            <img
+                                src="img/HeroPlaceholder.webp"
+                                alt="Background"
+                                className="absolute left-0 top-0 size-full object-cover object-center"
+                            /> 
+                            <div className='absolute left-0 top-0 size-full flex-center bg-white bg-opacity-10'>
+                                <div className="three-body">
+                                    <div className="three-body__dot"></div>
+                                    <div className="three-body__dot"></div>
+                                    <div className="three-body__dot"></div>
+                                </div>
+                            </div>
+                        </div>
                     }
                 </div>
 
