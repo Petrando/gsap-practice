@@ -109,7 +109,7 @@ const Hero = () => {
 
     const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`        
 
-    const allVidsReady = vid1Ref.current?.readyState && vid2Ref.current?.readyState    
+    const allVidsReady = vid1Ref.current?.readyState === 4 && vid2Ref.current?.readyState === 4    
 
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
