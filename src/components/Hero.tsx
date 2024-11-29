@@ -107,7 +107,10 @@ const Hero = () => {
         });        
     });
 
-    const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`   
+    const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`
+    
+    console.log(vid1Ref.current?.readyState)
+    console.log(vid2Ref.current?.readyState)
 
     return (
         <div className="relative h-dvh w-screen overflow-x-hidden">
