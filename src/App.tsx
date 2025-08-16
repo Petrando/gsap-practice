@@ -47,6 +47,7 @@ function App() {
       <Hero />
       <About />
       <Features />
+      <Story />
     </div>
   );
 }
