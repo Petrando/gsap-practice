@@ -112,17 +112,7 @@ const Hero = () => {
     const allVidsReady = vid1Ref.current?.readyState === 4 && vid2Ref.current?.readyState === 4    
 
     return (
-        <div className="relative h-dvh w-screen overflow-x-hidden">
-            {loading && <></>/*(
-                <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
-                
-                <div className="three-body">
-                    <div className="three-body__dot"></div>
-                    <div className="three-body__dot"></div>
-                    <div className="three-body__dot"></div>
-                </div>
-                </div>
-            )*/}
+        <div className="relative h-dvh w-screen overflow-x-hidden">            
             <div 
                 id="video-frame"
                 className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
@@ -192,9 +182,13 @@ const Hero = () => {
                     className={`special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75 ${isGlitching.glitch && "glitch"}`}
                     data-text="GAMING"
                 >
-                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>G<b>A</b>MING</span>
+                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>
+                        G<b>A</b>MING
+                    </span>
                     G<b>A</b>MING
-                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>G<b>A</b>MING</span>
+                    <span aria-hidden={true} className={`${isGlitching.glitch?"inline":"hidden"}`}>
+                        G<b>A</b>MING
+                    </span>
                 </h1>
 
                 <div className="absolute left-0 top-0 z-40 size-full">

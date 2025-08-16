@@ -132,7 +132,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, toggleRef }) 
                 <a
                   key={index}
                   href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn text-indigo-950 dark:text-slate-200 
+                  className="nav-hover-btn
                              hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 >
                   {item}
