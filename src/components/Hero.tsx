@@ -117,6 +117,16 @@ const Hero = () => {
                 id="video-frame"
                 className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
             >
+                {loading && <></>/*(
+                    <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+                    
+                    <div className="three-body">
+                        <div className="three-body__dot"></div>
+                        <div className="three-body__dot"></div>
+                        <div className="three-body__dot"></div>
+                    </div>
+                    </div>
+                )*/}
                 <div>
                     <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
                         <div 

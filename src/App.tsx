@@ -6,10 +6,7 @@ import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import NavBar from "./components/Navbar"
 import Story from "./components/Story"
-//import { Navbar, Hero } from "./components/sample";
-import { Navbar } from "./components/sample/Navbar"
-//import { Hero } from "./components/sample/Hero";
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 
 function App() {
