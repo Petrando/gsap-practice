@@ -109,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, toggleRef }) 
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav
-          className="flex size-full items-center justify-between p-4 
+          className="flex size-full items-center justify-between p-4 sm:p-0 
                      bg-white/70 dark:bg-gray-900/70 backdrop-blur-md rounded-2xl shadow-md 
                      transition-colors duration-500"
         >

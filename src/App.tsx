@@ -10,7 +10,7 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   // Apply dark mode to html tag + animate toggle
