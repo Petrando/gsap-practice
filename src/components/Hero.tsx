@@ -107,7 +107,15 @@ const Hero = () => {
         });        
     });
 
-    const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`        
+    const videos = [
+        'https://iqdjihq5te.ufs.sh/f/DflywCg2UTE8jEL3i6XbyXz5crRJFSNio7uqPI3HVLagKEh1',
+        'https://iqdjihq5te.ufs.sh/f/DflywCg2UTE8NFcABP0ZaZ95JqMcOuWiVAzvkUL703G8Kg1s',
+        'https://iqdjihq5te.ufs.sh/f/DflywCg2UTE8qzU8Icyj8soINkO39LTvWmKyYlAX0ijcbeaQ',
+        'https://iqdjihq5te.ufs.sh/f/DflywCg2UTE8IBQZfeiaoDdR9hyAYslLCk7vJ2QOHf5WSebZ'
+    ]
+
+    const getVideoSrc = (index: string) => videos[parseInt(index) - 1] || videos[0];    
+    //const getVideoSrc = (index: string) => `videos/hero-${index}.mp4`        
 
     const allVidsReady = vid1Ref.current?.readyState === 4 && vid2Ref.current?.readyState === 4    
 
