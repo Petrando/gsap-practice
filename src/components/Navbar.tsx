@@ -109,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, toggleRef }) 
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav
-          className="flex size-full items-center justify-between p-4 sm:p-0 
+          className="flex size-full items-center justify-between p-4 
                      bg-white/70 dark:bg-gray-900/70 backdrop-blur-md rounded-2xl shadow-md 
                      transition-colors duration-500"
         >
@@ -132,7 +132,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, toggleRef }) 
                 <a
                   key={index}
                   href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn
+                  className="nav-hover-btn text-indigo-950 dark:text-slate-200 
                              hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
                 >
                   {item}
