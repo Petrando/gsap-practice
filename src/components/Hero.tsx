@@ -136,6 +136,23 @@ const Hero = () => {
                     </div>
                 )*/}
                 <div>
+                    {
+                        !allVidsReady &&
+                        <div className='absolute left-0 top-0 size-full object-cover object-center'>
+                            <img
+                                src="img/HeroPlaceholder.webp"
+                                alt="Background"
+                                className="absolute left-0 top-0 size-full object-cover object-center"
+                            /> 
+                            <div className='absolute left-0 top-0 size-full flex-center bg-white bg-opacity-10'>
+                                <div className="three-body">
+                                    <div className="three-body__dot"></div>
+                                    <div className="three-body__dot"></div>
+                                    <div className="three-body__dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                     <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
                         <div 
                             onClick={()=>{debouncedHandleVidClick("mouse")}}
@@ -177,23 +194,7 @@ const Hero = () => {
                         className="absolute left-0 top-0 size-full object-cover object-center"
                         onLoadedData={handleVideoLoad}
                     />
-                    {
-                        !allVidsReady &&
-                        <div className='absolute left-0 top-0 size-full object-cover object-center'>
-                            <img
-                                src="img/HeroPlaceholder.webp"
-                                alt="Background"
-                                className="absolute left-0 top-0 size-full object-cover object-center"
-                            /> 
-                            <div className='absolute left-0 top-0 size-full flex-center bg-white bg-opacity-10'>
-                                <div className="three-body">
-                                    <div className="three-body__dot"></div>
-                                    <div className="three-body__dot"></div>
-                                    <div className="three-body__dot"></div>
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    
                 </div>
 
                 <h1 
