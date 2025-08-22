@@ -6,6 +6,7 @@ interface IBentoTilt {
     children: ReactNode;
     className: string;
 }
+
 export const BentoTilt:FC<IBentoTilt> = ({ children, className = "" }) => {
     const [transformStyle, setTransformStyle] = useState("");
     const itemRef = useRef<HTMLDivElement>(null);
@@ -113,7 +114,10 @@ const Features = () => {
     ]
 
     return (
-        <section className="bg-white dark:bg-black pb-52">
+        <section 
+            id="prologue"
+            className="bg-white dark:bg-black pb-52"
+        >
             <div className="container mx-auto px-3 md:px-10">
                 <div className="px-5 py-32">
                     <p className="font-circular-web text-lg text-blue-900 dark:text-blue-50">

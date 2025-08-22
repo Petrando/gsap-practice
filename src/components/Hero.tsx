@@ -120,7 +120,10 @@ const Hero = () => {
     const allVidsReady = vid1Ref.current?.readyState === 4 && vid2Ref.current?.readyState === 4    
 
     return (
-        <div className="relative h-dvh w-screen overflow-x-hidden">            
+        <div 
+            id="nexus"
+            className="relative h-dvh w-screen overflow-x-hidden"
+        >            
             <div 
                 id="video-frame"
                 className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
