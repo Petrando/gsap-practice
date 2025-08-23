@@ -1,19 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { FC, useRef } from 'react'
+import { useRef } from 'react'
 import AnimatedTitle from './AnimatedTitle';
 import Button from './Button';
 import ImageClipBox from './image-clipbox';
-
-interface IImageClipBox {
-    src: string;
-    clipClass: string;
-}
-
-const ImageClipBox1:FC<IImageClipBox> = ({ src, clipClass }) => (
-    <div className={clipClass}>
-      <img src={src} />
-    </div>
-);
 
 const Contact = () => {
     const contactRef = useRef<HTMLDivElement | null>(null)
