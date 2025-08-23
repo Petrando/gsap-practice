@@ -46,7 +46,7 @@ const Story = () => {
         }
     };
     return (
-        <div id="story" className="min-h-dvh w-screen overflow-hidden bg-blue-50 text-slate-900 dark:bg-black dark:text-blue-50">
+        <div id="vault" className="min-h-dvh w-screen overflow-hidden bg-blue-50 text-slate-900 dark:bg-black dark:text-blue-50">
             <div className="flex size-full flex-col items-center py-10 pb-24">
                 <p className="font-general text-sm uppercase md:text-[10px]">
                     the multiversal ip world

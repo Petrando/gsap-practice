@@ -100,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, toggleRef }) 
     }
   }, [darkMode]);
 
-  const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+  const navItems = ["Nexus", "About", "Prologue", "Vault", "Contact"];
 
   return (
     <div

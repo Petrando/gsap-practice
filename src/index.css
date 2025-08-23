@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'General Sans', 'sans-serif';
     width: 100dvw;
@@ -627,4 +631,18 @@ Alternate glitch effect
     text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
       -0.04em -0.025em 0 #fffc00;
   }
+}
+
+/* slice image css */
+@keyframes sliceShift {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+}
+
+.animate-slice {
+  animation: sliceShift 4s infinite ease-in-out;
 }
