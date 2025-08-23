@@ -632,3 +632,17 @@ Alternate glitch effect
       -0.04em -0.025em 0 #fffc00;
   }
 }
+
+/* slice image css */
+@keyframes sliceShift {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+}
+
+.animate-slice {
+  animation: sliceShift 4s infinite ease-in-out;
+}
